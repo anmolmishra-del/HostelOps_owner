@@ -74,21 +74,8 @@ class LoginCubit extends Cubit<LoginState> {
   }
 
   // ⏱ TIMER
-  void startTimer() {
-    _timer?.cancel();
-
-    _timer = Timer.periodic(const Duration(seconds: 1), (timer) {
-      if (state.timer == 0) {
-        timer.cancel();
-      } else {
-        emit(state.copyWith(timer: state.timer - 1));
-      }
-    });
-  }
   // void startTimer() {
   //   _timer?.cancel();
-
-  //   emit(state.copyWith(timer: 30)); // ✅ RESET TIMER
 
   //   _timer = Timer.periodic(const Duration(seconds: 1), (timer) {
   //     if (state.timer == 0) {
@@ -98,6 +85,19 @@ class LoginCubit extends Cubit<LoginState> {
   //     }
   //   });
   // }
+  void startTimer() {
+    _timer?.cancel();
+
+    // emit(state.copyWith(timer: 30)); // ✅ RESET TIMER
+
+    _timer = Timer.periodic(const Duration(seconds: 1), (timer) {
+      if (state.timer == 0) {
+        timer.cancel();
+      } else {
+        emit(state.copyWith(timer: state.timer - 1));
+      }
+    });
+  }
 
   @override
   Future<void> close() {

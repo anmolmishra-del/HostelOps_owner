@@ -33,6 +33,13 @@ class _OtpScreenState extends State<OtpScreen> {
   }
 
   @override
+  void initState() {
+    super.initState();
+
+    context.read<LoginCubit>().startTimer(); // ✅ ALWAYS start
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,

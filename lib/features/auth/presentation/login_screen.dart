@@ -7,6 +7,7 @@ import 'package:hostelops_owner/core/custome_widget/authi_togg/auth_toggle.dart'
 import 'package:hostelops_owner/core/routes/app_routes.dart';
 import 'package:hostelops_owner/core/theme/app_colours.dart';
 import 'package:hostelops_owner/features/auth/cubit/login_cubit.dart';
+import 'package:hostelops_owner/features/auth/presentation/otp_screen.dart';
 import 'package:hostelops_owner/features/auth/state/login_state.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -86,12 +87,21 @@ class _LoginScreenState extends State<LoginScreen>
           }
 
           // ❌ Show error
+          // if (state.error != null) {
+          //   ScaffoldMessenger.of(
+          //     context,
+          //   ).showSnackBar(SnackBar(content: Text(state.error!)));
+          // }
           if (state.error != null) {
             ScaffoldMessenger.of(
               context,
             ).showSnackBar(SnackBar(content: Text(state.error!)));
+          } else if (state.otpSent) {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (_) => OtpScreen(phone: phone.text)),
+            );
           }
-
           // ✅ Navigate to dashboard
           if (state.isVerified) {
             Navigator.pushReplacementNamed(context, AppRoutes.dashboard);
