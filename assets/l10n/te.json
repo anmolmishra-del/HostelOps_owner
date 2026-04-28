@@ -1,0 +1,17 @@
+{
+  "dashboard": "డాష్‌బోర్డ్",
+  "goodMorning": "శుభోదయం",
+  "totalBeds": "మొత్తం బెడ్లు",
+  "occupied": "నిండినవి",
+  "vacant": "ఖాళీ",
+  "todaySummary": "ఈరోజు సారాంశం",
+  "collected": "సేకరించబడింది",
+  "pending": "బాకీ",
+  "tenants": "వాసులు",
+  "payments": "చెల్లింపులు",
+  "rooms": "గదులు",
+  "expenses": "ఖర్చులు",
+  "notices": "నోటీసులు",
+  "reports": "రిపోర్ట్స్",
+  "recentCollections": "తాజా సేకరణలు"
+}
